@@ -50,7 +50,7 @@ function ptag() {
     var el;
     try{
     if (typeof r0.surroundContents != 'undefined') {
-        el = document.createElement('code');
+        el = document.createElement('span');
         r0.surroundContents(el);
     } else {
         el = r0.surroundContents;
@@ -58,7 +58,8 @@ function ptag() {
         el = r0.commonAncestorContainer;
     }
     $(el).attr({
-        'class':    'parameter'
+    	//Label instead of parameter
+        'class':    'label'
     }).css({
         'display': 'inline',
         'background-color': 'lightblue !important',
@@ -179,6 +180,16 @@ function message(to, msg) {
             tag(msg.substring(4));
         }
 
+        if (msg.indexOf('save:') != -1){
+        	//document.location='view-source:' + document.location;
+        	//document.location='view-source:data:text/html,' + document.getElementsByTagName('body')[0].innerHTML;
+        	save();
+        }
+        if (msg.indexOf('exportRDF:') != -1){
+        	//document.location='view-source:' + document.location;
+        	//document.location='view-source:data:text/html,' + document.getElementsByTagName('body')[0].innerHTML;
+        	exportRDF();
+        }
     }
 
 }
@@ -189,7 +200,7 @@ function poll() {
 }
 
 function process() {
-    var selection = (window.getSelection() + '').trim();
+    var selection = (window.getSelection() + '');//.trim();
     //if (selection.indexOf(" ") != -1) {
     //    PowerMagpie.process(selection);
     //} else {
@@ -349,6 +360,19 @@ function remove() {
     }
 }
 
+function save() {
+	 //document.getElementById('pmtxt').value = document.getElementsByTagName('body')[0].innerHTML;
+	 var serializer = new XMLSerializer();
+	 document.getElementById('pmtxt1').value = serializer.serializeToString( document.getElementsByTagName('html')[0] );
+	 document.getElementById('pmform1').submit();
+}
+
+function exportRDF() {
+	var serializer = new XMLSerializer();
+	document.getElementById('pmtxt2').value = serializer.serializeToString( document.getElementsByTagName('html')[0] );
+	document.getElementById('pmform2').submit();
+}
+
 function tag(node) {
     console.log(node);
     if (node.lastIndexOf(":ntt:") != -1)
@@ -369,6 +393,19 @@ function tag(node) {
 	//var seeAlso = 'http://purl.org/net/powermagpie/store/' + (new UUID() + '').toLowerCase();
     console.log(lastNid);
     $("#" + lastNid).attr({
+				//'about': 	about,
+                //'instanceof': uri,
+				'rel': 'model',
+				'href':	uri
+                //'title':    uri,
+				//'property': 'content:item',
+				//'xmlns:content': 'http://purl.org/rss/1.0/modules/content/',
+				//'xmlns:rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
+               // 'xmlns:oguid': 'http://openguid.net/rdf#',
+                //'node': node
+			});//.addClass('mref');
+    
+    /* $("#" + lastNid).attr({
 				'about': 	about,
                 //'instanceof': uri,
 				'rel': 'oguid:identical',
@@ -379,7 +416,7 @@ function tag(node) {
 				//'xmlns:rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
                 'xmlns:oguid': 'http://openguid.net/rdf#',
                 'node': node
-			}).addClass('mref');
+			}).addClass('mref');*/
 
      PowerMagpie.tagged(lastNid, $("#" + lastNid).text(), uri, node);
 }
@@ -396,8 +433,12 @@ function tag(node) {
                         with(window[namespace]){
     var pmui = document.createElement('div');
     pmui.id = "c3f22685-79cc-4ed6-b833-2ff9f61a5a33";
-    pmui.innerHTML = "<div id='c3f22685-79cc-4ed6-b833-2ff9f61a5a33-logo'><div id='pmproc'><img src='"+base+"/Icons/mini_icons2/wand.gif' onclick='process();' /><img src='"+base+"/Icons/mini_icons2/cross.gif' onclick='remove();' /></div><img src='"+base+"/title.png' /></div>"
-        +"<iframe id='pmframe' name='pmframe' frameborder='0' scrolling='no' src='"+base+"/UI/?"+Math.random()+"#"+session+"'></iframe>";
+    pmui.innerHTML = "<div id='c3f22685-79cc-4ed6-b833-2ff9f61a5a33-logo'><div id='pmproc'><img src='"+base+"/Icons/mini_icons2/wand.gif' onclick='process();' /><img src='"+base+"/Icons/mini_icons2/cross.gif' onclick='remove();' /></div><img src='"+base+"/m.png' /></div>"
+    	+ "<form target='_new' style='display: none' id='pmform1' method='post' action='"+base+"/html'>"
+    	+ "<textarea name='pmtxt1' id='pmtxt1'></textarea></form>"
+    	    	+ "<form target='_new' style='display: none' id='pmform2' method='post' action='"+base+"/rdf'>"
+    	+ "<textarea name='pmtxt2' id='pmtxt2'></textarea></form>"
+        + "<iframe id='pmframe' name='pmframe' frameborder='0' scrolling='no' src='"+base+"/UI/?"+Math.random()+"#"+session+"'></iframe>";
     
     document.body.appendChild(pmui);
 

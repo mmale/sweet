@@ -62,6 +62,22 @@
             <param-value>index.html</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>HtmlAnnotation</servlet-name>
+        <servlet-class>uk.ac.open.powermagpie.servlet.HtmlAnnotation</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RDFAnnotation</servlet-name>
+        <servlet-class>uk.ac.open.powermagpie.servlet.RDFAnnotation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HtmlAnnotation</servlet-name>
+        <url-pattern>/html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RDFAnnotation</servlet-name>
+        <url-pattern>/rdf</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Mount</servlet-name>
         <url-pattern>/mnt/*</url-pattern>

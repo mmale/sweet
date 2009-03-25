@@ -4,17 +4,19 @@
     position:   fixed !important;
     left:       500px;
     top:        20px;
-    width:      300px;
-    height:     600px;
+    width:      250px;
+    height:     400px;
     z-index:    100000;
-    background-color:   white;
-    border:     1px solid #D0D0D0;
+    /*background-color:   white;*/
 }
 
 #c3f22685-79cc-4ed6-b833-2ff9f61a5a33-logo {
     height: 30px;
-    background-image: url(../Frameworks/ExtJS/2.2.1/resources/images/gray/panel/white-top-bottom.gif);
-    vertical-align: top;
+    background-color: #a0a0a0;
+    /*background-image: url(../Frameworks/ExtJS/2.2.1/resources/images/gray/panel/white-top-bottom.gif);*/
+    border-right:1px solid #111113;
+    border-top:1px solid #111113;
+    border-left:1px solid #111113;
 }
 
 #pmproc {

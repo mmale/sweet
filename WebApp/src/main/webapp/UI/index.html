@@ -13,8 +13,8 @@
     <meta property="dc:creator" content="Laurian Gridinoc" />
     <link rel="transformation" href="http://www.w3.org/2003/g/glean-profile" />
 
-    <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/ext-all.css" />
-    <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/xtheme-gray.css" />
+     <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/soa4all-ext-all.css">    
+    <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/dasheditor.css" />
  	<script type="text/javascript" src="Frameworks/ExtJS/2.2.1/adapter/ext/ext-base.js"></script>
     <script type="text/javascript" src="Frameworks/ExtJS/2.2.1/ext-all.js"></script>
 
@@ -37,21 +37,36 @@ Ext.onReady(function(){
        dwr.engine.setActiveReverseAjax(true);
 
        Ext.state.Manager.setProvider(new Ext.state.CookieProvider());
+       var south = new Ext.Panel({
+    	   region:'south',
+           contentEl: 'south',
+           split:true,
+           height: 110,
+           minSize: 100,
+           maxSize: 200,
+           collapsible: false,
+           autoScroll:true,
+           title:'Details',
+           margins:'0 0 0 0',
+           buttonAlign:'right',
+           items: new Ext.Panel( {border: true, 
+                html:'Please select some text on the page, then click on the wand symbol.'}),
+                  buttons: [{
+                      text: 'Save',
+                      id: 'Save',
+                      handler: save
+                   },{
+                       text: 'Export',
+                       id: 'Export',
+                       handler: exportRDF
+                   }]
+       });
+
        viewport = new Ext.Viewport({
             layout:'border',
             items:[
-                {
-                    region:'south',
-                    contentEl: 'south',
-                    split:true,
-                    height: 100,
-                    minSize: 100,
-                    maxSize: 200,
-                    collapsible: true,
-                    autoScroll:true,
-                    title:'Details',
-                    margins:'0 0 0 0'
-                }, {
+                	south
+                , {
                     region:'center',
                     deferredRender:false,
                     layout:'accordion',
@@ -59,39 +74,7 @@ Ext.onReady(function(){
                         animate:true
                     },
                     items:[{
-                        title: 'Entities',
-                        autoScroll:true,
-                        items:[
-                            new Ext.tree.TreePanel( {
-                                id: 'ntt-tree',
-                                animate:true,
-                                containerScroll: true,
-                                rootVisible: false,
-                                root: new Ext.tree.TreeNode({
-                                    id: 'ntt-root',
-                                    text: 'Entities',
-                                    allowDrag:false,
-                                    allowDrop:false
-                                })
-                            })]
-                    },{
-                        title: 'Ontologies',
-                        autoScroll:true,
-                        items:[
-                            new Ext.tree.TreePanel( {
-                                id: 'ont-tree',
-                                animate:true,
-                                containerScroll: true,
-                                rootVisible: false,
-                                root: new Ext.tree.TreeNode({
-                                    id: 'ont-root',
-                                    text: 'Ontologies',
-                                    allowDrag:false,
-                                    allowDrop:false
-                                })
-                            })]
-                    },{
-                        title: 'Predefined Ontologies',
+                        title: 'hREST Tags',
                         autoScroll:true,
                         contentEl: 'visualisation',
                         items:[
@@ -103,6 +86,38 @@ Ext.onReady(function(){
                                 root: new Ext.tree.TreeNode({
                                     id: 'pont-root',
                                     text: 'Predefined Ontologies',
+                                    allowDrag:false,
+                                    allowDrop:false
+                                })
+                            })]
+                    },{
+                        title: 'Service Properties',
+                        autoScroll:true,
+                        items:[
+                            new Ext.tree.TreePanel( {
+                                id: 'ntt-tree',
+                                animate:true,
+                                containerScroll: true,
+                                rootVisible: false,
+                                root: new Ext.tree.TreeNode({
+                                    id: 'ntt-root',
+                                    text: 'Service Properties',
+                                    allowDrag:false,
+                                    allowDrop:false
+                                })
+                            })]
+                    },{
+                        title: 'Domain Ontologies',
+                        autoScroll:true,
+                        items:[
+                            new Ext.tree.TreePanel( {
+                                id: 'ont-tree',
+                                animate:true,
+                                containerScroll: true,
+                                rootVisible: false,
+                                root: new Ext.tree.TreeNode({
+                                    id: 'ont-root',
+                                    text: 'Ontologies',
                                     allowDrag:false,
                                     allowDrop:false
                                 })
@@ -175,8 +190,8 @@ Ext.onReady(function(){
 
     //predefined ontologies
     populatePOntologies([
-        'http://www.example.org/food.owl',
-        'http://vistology.com/ont/mad_cows_ont.daml'
+        //'http://www.example.org/food.owl',
+        //'http://vistology.com/ont/mad_cows_ont.daml'
     ]);
 
     // dummy ontology
@@ -202,6 +217,29 @@ Ext.onReady(function(){
 
     dont.appendChild(dservice);
 
+    daddr = new Ext.tree.TreeNode({
+        text:   "Address" + " <img onclick='atag()' src='Icons/mini_icons2/tag.gif' />",
+        id:     "pont:http://example.com/Address",
+        cls:    'entity',
+        icon:   "Icons/C.png",
+        allowDrag:  false,
+        populated:  false
+        });
+
+	dont.appendChild(daddr);
+
+	//Label
+    dparam = new Ext.tree.TreeNode({
+                    text:   "Label" + " <img onclick='ptag()' src='Icons/mini_icons2/tag.gif' />",
+                    id:     "pont:http://example.com/Label",
+                    cls:    'entity',
+                    icon:   "Icons/C.png",
+                    allowDrag:  false,
+                    populated:  false
+                    });
+
+    dont.appendChild(dparam);
+
     dop = new Ext.tree.TreeNode({
                     text:   "Operation" + " <img onclick='otag()' src='Icons/mini_icons2/tag.gif' />",
                     id:     "pont:http://www.wsmo.org/ns/hrests#Operation",
@@ -212,28 +250,6 @@ Ext.onReady(function(){
                     });
 
     dont.appendChild(dop);
-
-    dparam = new Ext.tree.TreeNode({
-                    text:   "Parameter" + " <img onclick='ptag()' src='Icons/mini_icons2/tag.gif' />",
-                    id:     "pont:http://example.com/Parameter",
-                    cls:    'entity',
-                    icon:   "Icons/C.png",
-                    allowDrag:  false,
-                    populated:  false
-                    });
-
-    dont.appendChild(dparam);
-
-    daddr = new Ext.tree.TreeNode({
-                    text:   "Address" + " <img onclick='atag()' src='Icons/mini_icons2/tag.gif' />",
-                    id:     "pont:http://example.com/Address",
-                    cls:    'entity',
-                    icon:   "Icons/C.png",
-                    allowDrag:  false,
-                    populated:  false
-                    });
-
-    dont.appendChild(daddr);
 
     din = new Ext.tree.TreeNode({
                     text:   "Input" + " <img onclick='itag()' src='Icons/mini_icons2/tag.gif' />",
@@ -785,6 +801,18 @@ function utag() {
 function atag() {
     PowerMagpie.send('host', 'atag:');
 }
+function save() {
+    PowerMagpie.send('host', 'save:');
+}
+function exportRDF() {
+    PowerMagpie.send('host', 'exportRDF:');
+}
+
+exportRDF
+//function source() {
+   // PowerMagpie.send('host', 'exportRDF:');
+//}
+
     //--><!]]></script>
   </head>
   <body>
@@ -794,12 +822,11 @@ function atag() {
   </div>
 
   <div id="center1">
-      <!-- Entities -->
+      <!-- Service Properties -->
   </div>
 
   <div id="south">
     <!-- info -->
-    ...
   </div>
 
   <div id="visualisation">
