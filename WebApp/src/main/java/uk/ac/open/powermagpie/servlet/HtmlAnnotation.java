@@ -46,6 +46,7 @@ public class HtmlAnnotation extends HttpServlet {
         	
         	String message ="Your annotation was saved! Location:c:/Temp/HtmlAnnotation.html";
         	out.write(message.getBytes(), 0, message.getBytes().length);
+        	
         } catch (Exception ex){
         	ex.printStackTrace();
         } finally {
