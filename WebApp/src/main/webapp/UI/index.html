@@ -703,6 +703,12 @@ function _match(to, searchTerm, match, count) {
 
         node.expand();
         node.populated = true;
+
+        PowerMagpie.getOntologies({
+            callback:   function(data){
+                            populateOntologies(data);
+                        }
+        });
 }
 
 function callShowMatch(nid) {

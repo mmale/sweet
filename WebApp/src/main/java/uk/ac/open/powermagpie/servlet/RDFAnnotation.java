@@ -60,7 +60,7 @@ public class RDFAnnotation extends HttpServlet {
         	Document document = parser.parse(new InputSource(new ByteArrayInputStream(innerHtml.getBytes())));
         	
         	TransformerFactory xformFactory =   TransformerFactory.newInstance();
-        	Transformer transformer = xformFactory.newTransformer(new javax.xml.transform.stream.StreamSource("C:/WorkKMi/Work/SOA4ALL/MicroWSMOEditor/XSLT/hrests.xslt"));
+        	Transformer transformer = xformFactory.newTransformer(new javax.xml.transform.stream.StreamSource("c:/Temp/hrests.xslt"));
    
         	DOMSource source = new DOMSource(document);
         	
