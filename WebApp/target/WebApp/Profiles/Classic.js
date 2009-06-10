@@ -195,16 +195,16 @@ function message(to, msg) {
 }
 
 function poll() {
-    PowerMagpie.ping("*");
+    sweet.ping("*");
     setTimeout('poll()', 1000);
 }
 
 function process() {
     var selection = (window.getSelection() + '');//.trim();
     //if (selection.indexOf(" ") != -1) {
-    //    PowerMagpie.process(selection);
+    //    sweet.process(selection);
     //} else {
-        PowerMagpie.add(selection);
+        sweet.add(selection);
     //}
 }
 
@@ -242,7 +242,7 @@ function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag) {
         if (lcBodyText.lastIndexOf("/script>", i) >= lcBodyText.lastIndexOf("<script", i)) {
           counter++;
           highlightStartTag = "<span onclick='showNTT(\"nid"+counter+"\",\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:lightgray;'>";
-          //highlightStartTag = "<span xmlns:pm='http://powermagpie.open.ac.uk/' about='"+document.location+"#nid"+counter+"' instanceof='pm:Match' property='pm:text' onclick='showNTT(\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:lightgray;'>";
+          //highlightStartTag = "<span xmlns:pm='http://sweet.open.ac.uk/' about='"+document.location+"#nid"+counter+"' instanceof='pm:Match' property='pm:text' onclick='showNTT(\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:lightgray;'>";
           //highlightStartTag = "<span xmlns:owl='http://www.w3.org/2002/07/owl#' onclick='showNTT(\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:lightgray;'>";
           match = bodyText.substr(i, searchTerm.length);
           newText += bodyText.substring(0, i) + highlightStartTag + bodyText.substr(i, searchTerm.length) + highlightEndTag;
@@ -314,7 +314,7 @@ function sendMatch(searchTerm, match, count){
             });
         }
     }
-    PowerMagpie.match('ui', searchTerm, match, count);
+    sweet.match('ui', searchTerm, match, count);
 }
 
 var lastNid = "nil";
@@ -338,10 +338,10 @@ function showNTT(nid, searchTerm) {
     if ($('#' + nid).attr('node') != null
             && $('#' + nid).attr('node').indexOf(':ntt:') != -1
         ) {
-        PowerMagpie.selectNode('*', $('#' + nid).attr('node'));
+        sweet.selectNode('*', $('#' + nid).attr('node'));
 
     } else {
-        PowerMagpie.select('*', searchTerm);
+        sweet.select('*', searchTerm);
     }
 }
 
@@ -388,9 +388,9 @@ function tag(node) {
     //#xpointer(string-range(//P,&quot;FOO&quot;))
     //
 	var about = base + '#xpointer(string-range('
-        + window['http://purl.org/net/powermagpie'].getXPath($("#" + lastNid).parent()[0]).toLowerCase()
+        + window['http://purl.oclc.org/NET/sweetdemo'].getXPath($("#" + lastNid).parent()[0]).toLowerCase()
         + ',&quot;' + $("#" + lastNid).text() + '&quot;))' ;
-	//var seeAlso = 'http://purl.org/net/powermagpie/store/' + (new UUID() + '').toLowerCase();
+	//var seeAlso = 'http://purl.org/net/sweet/store/' + (new UUID() + '').toLowerCase();
     console.log(lastNid);
     $("#" + lastNid).attr({
 				//'about': 	about,
@@ -418,11 +418,11 @@ function tag(node) {
                 'node': node
 			}).addClass('mref');*/
 
-     PowerMagpie.tagged(lastNid, $("#" + lastNid).text(), uri, node);
+     sweet.tagged(lastNid, $("#" + lastNid).text(), uri, node);
 }
 (function(){
 
-	var namespace 	  = 'http://purl.org/net/powermagpie';
+	var namespace 	  = 'http://purl.oclc.org/NET/sweetdemo';
 
 	window[namespace].$.extend(
 		window[namespace],
@@ -446,7 +446,7 @@ function tag(node) {
         $("#c3f22685-79cc-4ed6-b833-2ff9f61a5a33").draggable();
         $("#c3f22685-79cc-4ed6-b833-2ff9f61a5a33").resizable({ autohide: true, minHeight: 400, minWidth: 200 });
     }, 2000);
-    PowerMagpie.send("host", "ui:ready");
+    sweet.send("host", "ui:ready");
                         }
 					},
 
@@ -481,7 +481,7 @@ function tag(node) {
 							document.getElementsByTagName("head")[0].appendChild(node);
 						},
 
-			session: 	'http://purl.org/net/powermagpie/store/'
+			session: 	'http://purl.oclc.org/NET/sweetdemo/store/'
 						+ (new UUID()
 						+ '').toLowerCase()
 		});

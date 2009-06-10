@@ -1,6 +1,6 @@
 (function(){
 	
-	var namespace 	  = 'http://purl.org/net/powermagpie';
+	var namespace 	  = 'http://purl.oclc.org/NET/sweetdemo';
 	
 	with (window[namespace]) {
 		
@@ -32,8 +32,8 @@
 					loadScript(base + '/Frameworks/jQuery/jquery-easing-1.3/jquery.easing.1.3.js', function(){
 						loadScript(base + '/Frameworks/jQuery/humanmsg-1.0/humanmsg-1.0.js', function(){
 							
-							humanMsg.setup('body', 'PowerMagpie');
-							humanMsg.displayMsg('PowerMagpie magick loaded! v' + version, false);
+							humanMsg.setup('body', 'sweet');
+							humanMsg.displayMsg('sweet magick loaded! v' + version, false);
 							
 						});
 						

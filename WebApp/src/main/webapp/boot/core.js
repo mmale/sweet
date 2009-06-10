@@ -1,6 +1,6 @@
 (function(){
 	
-	var namespace 	  = 'http://purl.org/net/powermagpie';
+	var namespace 	  = 'http://purl.oclc.org/NET/sweetdemo';
 	
 	with (window[namespace]) {
 					
@@ -8,17 +8,17 @@
 			loadScript(base + '/Library/rdfa/rdfa.js');
 
             //DWR
-            if (typeof this['PowerMagpie'] == 'undefined') this.PowerMagpie = {};
+            if (typeof this['sweet'] == 'undefined') this.sweet = {};
             if (typeof this['dwr'] == 'undefined') this.dwr = {};
             if (typeof dwr['engine'] == 'undefined') dwr.engine = {};
             if (typeof this['__System'] == 'undefined') this.__System = {};
 
-            PowerMagpie._path =  base + '/dwr';
+            sweet._path =  base + '/dwr';
             __System._path = base + '/dwr';
             
-            loadScript(base + '/dwr/interface/PowerMagpie.js', function(){
+            loadScript(base + '/dwr/interface/sweet.js', function(){
 
-                PowerMagpie._path =  base + '/dwr';
+                sweet._path =  base + '/dwr';
                 __System._path = base + '/dwr';
 
 

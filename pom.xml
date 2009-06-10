@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>uk.ac.open.powermagpie</groupId>
-    <artifactId>PowerMagpie</artifactId>
+    <groupId>uk.ac.open.sweet</groupId>
+    <artifactId>sweet</artifactId>
     <packaging>pom</packaging>
     <version>2.0</version>
-    <name>PowerMagpie</name>
-    <url>http://purl.org/net/powermagpie</url>
+    <name>sweet</name>
+    <url>http://purl.oclc.org/NET/sweetdemo</url>
     <description>A framework for semantic browsing</description>
     <organization>
         <name>Knowledge Media Institute</name>
         <url>http://kmi.open.ac.uk/</url>
     </organization>
     <scm>
-        <connection>scm:git:git://github.com/Laurian/powermagpie.git</connection>
-        <url>http://github.com/Laurian/powermagpie</url>
+        <connection>scm:git:git://github.com/Laurian/sweet.git</connection>
+        <url>http://github.com/Laurian/sweet</url>
     </scm>
     <issueManagement>
         <system>Lighthouse</system>
-        <url>http://powermagpie.lighthouseapp.com/</url>
+        <url>http://sweet.lighthouseapp.com/</url>
     </issueManagement> 
     <developers>
         <developer>

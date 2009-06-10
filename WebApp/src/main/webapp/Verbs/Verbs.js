@@ -18,7 +18,7 @@ CmdUtils.makeBookmarkletCommand({
 });
 
 /*
- * Pica (PowerMagpie) command
+ * Pica (sweet) command
  */
 // This command looks up a keyword in sindice such as
 // http://api.sindice.com/v2/search?q=berners-lee&qt=term&format=json
@@ -26,16 +26,16 @@ CmdUtils.makeBookmarkletCommand({
 CmdUtils.CreateCommand({
     name: "pica",
     takes: {"a term": noun_arb_text},
-    homepage: "http://purl.org/net/powermagpie",
+    homepage: "http://purl.oclc.org/NET/sweetdemo",
     author: { name: "Laurian Gridinoc", email: "laurian@gridinoc.name"},
     license: "Apache? TBD", //TODO
-    description: "Displays PowerMagpie results for a term or a set of discovered terms in the input",
-    help: "see http://purl.org/net/powermagpie",
+    description: "Displays sweet results for a term or a set of discovered terms in the input",
+    help: "see http://purl.oclc.org/NET/sweetdemo",
 
   preview: function(previewBlock, term) {
-    previewBlock.innerHTML = "looking up " + term.text + " with PowerMagpie \u2026 ";
+    previewBlock.innerHTML = "looking up " + term.text + " with sweet \u2026 ";
     displayMessage(term.text);
-        previewBlock.innerHTML = "<iframe src='http://localhost:8080/PowerMagpie/UI/index.html' border='0' width='100%' height='100%' scrolling='yes' style='border: 0; margin: 0;' ></iframe>";
+        previewBlock.innerHTML = "<iframe src='http://sweetdemo.kmi.open.ac.uk:8080/UI/index.html' border='0' width='100%' height='100%' scrolling='yes' style='border: 0; margin: 0;' ></iframe>";
 
   },
 
@@ -47,7 +47,7 @@ CmdUtils.CreateCommand({
 
 /*
  *
- * PowerMagpie interface based on the Mouse-Based Ubiquity
+ * sweet interface based on the Mouse-Based Ubiquity
  * http://www.azarask.in/blog/post/can-ubiquity-be-used-only-with-the-mouse/
  *
  */

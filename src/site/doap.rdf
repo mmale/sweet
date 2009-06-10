@@ -15,20 +15,20 @@
 --> 
 <rdf:RDF xml:lang="en" xmlns="http://usefulinc.com/ns/doap#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:asfext="http://projects.apache.org/ns/asfext#" xmlns:foaf="http://xmlns.com/foaf/0.1/">
   <Project rdf:about="http://Maven.rdf.apache.org/">
-    <name>PowerMagpie</name>
-    <homepage rdf:resource="http://purl.org/net/powermagpie"/>
-    <asfext:pmc rdf:resource="http://purl.org/net/powermagpie"/>
+    <name>sweet</name>
+    <homepage rdf:resource="http://purl.oclc.org/NET/sweetdemo"/>
+    <asfext:pmc rdf:resource="http://purl.oclc.org/NET/sweetdemo"/>
     <shortdesc>A framework for semantic browsing</shortdesc>
     <description>A framework for semantic browsing</description>
-    <bug-database rdf:resource="http://powermagpie.lighthouseapp.com/"/>
-    <mailing-list rdf:resource="http://purl.org/net/powermagpie/mail-lists.html"/>
-    <download-page rdf:resource="http://purl.org/net/powermagpie/download.html"/>
+    <bug-database rdf:resource="http://sweet.lighthouseapp.com/"/>
+    <mailing-list rdf:resource="http://purl.oclc.org/NET/sweetdemo/mail-lists.html"/>
+    <download-page rdf:resource="http://purl.oclc.org/NET/sweetdemo/download.html"/>
     <programming-language>Java</programming-language>
     <category rdf:resource="http://projects.apache.org/category/XXXbuild-management"/>
     <repository>
       <SVNRepository>
-        <location rdf:resource="git://github.com/Laurian/powermagpie.git"/>
-        <browse rdf:resource="http://github.com/Laurian/powermagpie"/>
+        <location rdf:resource="git://github.com/Laurian/sweet.git"/>
+        <browse rdf:resource="http://github.com/Laurian/sweet"/>
       </SVNRepository>
     </repository>
     <maintainer>

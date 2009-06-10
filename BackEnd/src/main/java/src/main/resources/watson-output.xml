@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><matches><uk.ac.open.powermagpie.context.Match><sc><DLExpressivness/><NBClasses>0</NBClasses><NBIndividuals>0</NBIndividuals><NBProperties>0</NBProperties><URI>http://paint-hopes.livejournal.com/data/foaf</URI><entityResultList>
+<?xml version="1.0" encoding="UTF-8"?><matches><uk.ac.open.sweet.context.Match><sc><DLExpressivness/><NBClasses>0</NBClasses><NBIndividuals>0</NBIndividuals><NBProperties>0</NBProperties><URI>http://paint-hopes.livejournal.com/data/foaf</URI><entityResultList>
             <uk.ac.open.kmi.watson.clientapi.EntityResult>
                 <URI>http://www.livejournal.com/interests.bml?int=alphabet+soup.</URI>
                 <literals>
@@ -30,4 +30,4 @@
                 <type>Individual</type>
                 <____hashCodeCalc>false</____hashCodeCalc>
             </uk.ac.open.kmi.watson.clientapi.EntityResult>
-        </ntt><context>foo</context></uk.ac.open.powermagpie.context.Match></matches>
+        </ntt><context>foo</context></uk.ac.open.sweet.context.Match></matches>

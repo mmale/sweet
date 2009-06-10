@@ -12,12 +12,12 @@
 
 
     <xsl:template match="/">
-        <uk.ac.open.powermagpie.context.Term>
+        <uk.ac.open.sweet.context.Term>
             <lexical>rabbit</lexical>
             <OpenK>false</OpenK>
             <matches>
                 <xsl:for-each select="*">
-                    <uk.ac.open.powermagpie.context.Match>
+                    <uk.ac.open.sweet.context.Match>
                         <sc>
                             <xsl:copy-of select="node()[name(.) = 'uk.ac.open.kmi.watson.clientapi.SemanticContentResult']/*" />
                         </sc>
@@ -25,10 +25,10 @@
                             <xsl:copy-of select="node()[name(.) = 'uk.ac.open.kmi.watson.clientapi.SemanticContentResult']/node()[name(.) = 'entityResultList']/node()" />
                         </ntt>
                         <context>foo</context>
-                    </uk.ac.open.powermagpie.context.Match>
+                    </uk.ac.open.sweet.context.Match>
                 </xsl:for-each>
             </matches>
-        </uk.ac.open.powermagpie.context.Term>
+        </uk.ac.open.sweet.context.Term>
     </xsl:template>
 
 </xsl:stylesheet>

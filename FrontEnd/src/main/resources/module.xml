@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
     <identity>
-        <uri>urn:uk:ac:open:powermagpie</uri>
+        <uri>urn:uk:ac:open:sweet</uri>
         <version>1.0.0</version>
     </identity>
     <info>
-        <name>PowerMagpie</name>
+        <name>sweet</name>
         <description>
         </description>
         <type>application</type>
@@ -20,14 +20,14 @@
     </licence>
     <export>
         <uri>
-            <match>ffcpl:/PowerMagpie/.*</match>
+            <match>ffcpl:/sweet/.*</match>
             <match>ffcpl:/entrypoints.xml</match>
         </uri>
         <class/>
     </export>
     <rewrite>
         <rule>
-            <match>ffcpl:/PowerMagpie/(.*)</match>
+            <match>ffcpl:/sweet/(.*)</match>
             <to>ffcpl:/$1</to>
         </rule>
         <rule>

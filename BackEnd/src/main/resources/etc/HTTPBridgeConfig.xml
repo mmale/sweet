@@ -10,6 +10,6 @@
     <!-- Module's zone -->
     <zone>
         <!-- The match tells the HTTP Bridge which requests are in this zone -->
-        <match>.*/powermagpie/.*</match>
+        <match>.*/sweet/.*</match>
     </zone>
 </HTTPBridgeConfig>

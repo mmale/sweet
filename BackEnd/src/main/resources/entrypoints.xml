@@ -2,7 +2,7 @@
 <entrypoints>
     <entrypoint>
         <name>icon</name>
-        <uri>ffcpl:/powermagpie/powermagpie.png</uri>
+        <uri>ffcpl:/sweet/sweet.png</uri>
         <indexable>
             <title>Module Icon</title>
             <desc></desc>

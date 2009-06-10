@@ -24,7 +24,7 @@ function message(to, msg) {
 }
 
 function poll() {
-    PowerMagpie.ping("*");
+    sweet.ping("*");
     setTimeout('poll()', 1000);
 }
 
@@ -32,9 +32,9 @@ function process() {
     //var selection = (window.getSelection() + '').trim();
     var selection = (window.getSelection() + '');
     if (selection.indexOf(" ") != -1) {
-        PowerMagpie.process(selection);
+        sweet.process(selection);
     } else {
-        PowerMagpie.add(selection);
+        sweet.add(selection);
     }
 }
 
@@ -72,7 +72,7 @@ function doHighlight(bodyText, searchTerm, highlightStartTag, highlightEndTag) {
         if (lcBodyText.lastIndexOf("/script>", i) >= lcBodyText.lastIndexOf("<script", i)) {
           counter++;
           highlightStartTag = "<span onclick='showNTT(\"nid"+counter+"\",\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:yellow;'>";
-          //highlightStartTag = "<span xmlns:pm='http://powermagpie.open.ac.uk/' about='"+document.location+"#nid"+counter+"' instanceof='pm:Match' property='pm:text' onclick='showNTT(\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:lightgray;'>";
+          //highlightStartTag = "<span xmlns:pm='http://sweet.open.ac.uk/' about='"+document.location+"#nid"+counter+"' instanceof='pm:Match' property='pm:text' onclick='showNTT(\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:lightgray;'>";
           //highlightStartTag = "<span xmlns:owl='http://www.w3.org/2002/07/owl#' onclick='showNTT(\""+searchTerm+"\");return false;' id='nid" + counter + "' style='background-color:lightgray;'>";
           match = bodyText.substr(i, searchTerm.length);
           newText += bodyText.substring(0, i) + highlightStartTag + bodyText.substr(i, searchTerm.length) + highlightEndTag;
@@ -125,7 +125,7 @@ function replace(string, text, by) {
 }
 
 function sendMatch(searchTerm, match, count){
-    PowerMagpie.match('ui', searchTerm, match, count);
+    sweet.match('ui', searchTerm, match, count);
 }
 
 var lastNid = "nil";
@@ -141,7 +141,7 @@ function showMatch(nid) {
 
 function showNTT(nid, searchTerm) {
     showMatch(nid);
-    PowerMagpie.select('*', searchTerm);
+    sweet.select('*', searchTerm);
 }
 
 function tag(uri) {
@@ -152,7 +152,7 @@ function tag(uri) {
     var base = document.location.href.substring(0, document.location.href.length - document.location.hash.length);
 	var id = lastNid;
 	var about = base + "#" + id;
-	var seeAlso = 'http://purl.org/net/powermagpie/store/' + (new UUID() + '').toLowerCase();
+	var seeAlso = 'http://purl.org/net/sweet/store/' + (new UUID() + '').toLowerCase();
     console.log(lastNid);
     $("#" + lastNid).attr({
 				'about': 	about,
@@ -169,7 +169,7 @@ function clswin() {
 
 (function(){
 
-	var namespace 	  = 'http://purl.org/net/powermagpie';
+	var namespace 	  = 'http://purl.org/net/sweet';
 
 	window[namespace].$.extend(
 		window[namespace],
@@ -191,7 +191,7 @@ function clswin() {
         $("#c3f22685-79cc-4ed6-b833-2ff9f61a5a33").draggable();
         $("#c3f22685-79cc-4ed6-b833-2ff9f61a5a33").resizable({ autohide: true, minHeight: 400, minWidth: 200 });
     }, 2000);
-    PowerMagpie.send("host", "ui:ready");
+    sweet.send("host", "ui:ready");
                         }
 					},
 
@@ -226,7 +226,7 @@ function clswin() {
 							document.getElementsByTagName("head")[0].appendChild(node);
 						},
 
-			session: 	'http://purl.org/net/powermagpie/store/'
+			session: 	'http://purl.org/net/sweet/store/'
 						+ (new UUID()
 						+ '').toLowerCase()
 		});

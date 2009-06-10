@@ -8,17 +8,19 @@
 	xml:lang="en-GB">
   <head	version="XHTML+RDFa 1.0"
         profile="http://www.w3.org/1999/xhtml/vocab">
-    <base href="http://localhost:8080/PowerMagpie/" />
-    <title>PowerMagpie</title>
+    <base href="http://localhost:8080/sweet/" />
+    <title>sweet</title>
     <meta property="dc:creator" content="Laurian Gridinoc" />
     <link rel="transformation" href="http://www.w3.org/2003/g/glean-profile" />
 
-    <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/soa4all-ext-all.css">    
-    <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/dasheditor.css" />
+   <!-- <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/soa4all-ext-all.css"/>    
+    <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/dasheditor.css" /> --->
+      <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="Frameworks/ExtJS/2.2.1/resources/css/xtheme-gray.css" />
  	<script type="text/javascript" src="Frameworks/ExtJS/2.2.1/adapter/ext/ext-base.js"></script>
     <script type="text/javascript" src="Frameworks/ExtJS/2.2.1/ext-all.js"></script>
 
-    <script type='text/javascript' src='dwr/interface/PowerMagpie.js'></script>
+    <script type='text/javascript' src='dwr/interface/sweet.js'></script>
     <script type='text/javascript' src='dwr/engine.js'></script>
 
     <style id="stylesheet" type="text/css" media="screen, projection"><!--/*--><![CDATA[/*><!--*/
@@ -175,13 +177,13 @@ Ext.onReady(function(){
     });
 
     // load
-    PowerMagpie.getEntities({
+    sweet.getEntities({
         callback:   function(data){
                         populateEntities(data);
                     }
     });
 
-    PowerMagpie.getOntologies({
+    sweet.getOntologies({
         callback:   function(data){
                         populateOntologies(data);
                     }
@@ -263,10 +265,10 @@ function populateEntities(data) {
 
 
 function callExpandTerm(name) {
-    PowerMagpie.send("host", "hi:" + name);
+    sweet.send("host", "hi:" + name);
     var node = nttRoot.getOwnerTree().getNodeById("ntt:" + name);
     if (node.populated) return;
-    PowerMagpie.expandTerm(name, {
+    sweet.expandTerm(name, {
         callback:   function(data){
                         expandTerm(node, data);
                     }
@@ -313,7 +315,7 @@ function expandTerm(node, data) {
         );
     }
     //notify parent
-    //PowerMagpie.send(session + '#pm', node.id);
+    //sweet.send(session + '#pm', node.id);
 }
 
 function callExpandEntity(id, uri, type) {
@@ -352,7 +354,7 @@ function callExpandEntity(id, uri, type) {
     node.expand();
     node.populated = true;
 
-    PowerMagpie.expandEntity(uri, {
+    sweet.expandEntity(uri, {
         callback:   function(data){
                         expandEntity(ontNode, data);
                     }
@@ -442,7 +444,7 @@ function callExpandOnt(uri) {
     node.appendChild(sNode);
 
     if (node.populated) return;
-    PowerMagpie.expandOnt(uri, {
+    sweet.expandOnt(uri, {
         callback:   function(data){
                         expandOnt(node, data);
                     }
@@ -470,7 +472,7 @@ function callExpandPOnt(uri) {
 
 function callExpandOntTop(uri) {
     var node = ontRoot.getOwnerTree().getNodeById("ont:" + uri + ":s:");
-    PowerMagpie.expandOntTop(uri, {
+    sweet.expandOntTop(uri, {
         callback:   function(data){
                         expandOntConcepts(node, data);
                     }
@@ -479,7 +481,7 @@ function callExpandOntTop(uri) {
 
 function callExpandPOntTop(uri) {
     var node = pontRoot.getOwnerTree().getNodeById("pont:" + uri + ":s:");
-    PowerMagpie.expandOntTop(uri, {
+    sweet.expandOntTop(uri, {
         callback:   function(data){
                         expandPOntConcepts(node, data);
                     }
@@ -488,7 +490,7 @@ function callExpandPOntTop(uri) {
 
 function callExpandOntClass(id, ont, uri) {
     var node = ontRoot.getOwnerTree().getNodeById(id);
-    PowerMagpie.expandOntClass(ont, uri, {
+    sweet.expandOntClass(ont, uri, {
         callback:   function(data){
                         expandOntConcepts(node, data);
                     }
@@ -497,7 +499,7 @@ function callExpandOntClass(id, ont, uri) {
 
 function callExpandPOntClass(id, ont, uri) {
     var node = pontRoot.getOwnerTree().getNodeById(id);
-    PowerMagpie.expandOntClass(ont, uri, {
+    sweet.expandOntClass(ont, uri, {
         callback:   function(data){
                         expandPOntConcepts(node, data);
                     }
@@ -602,7 +604,7 @@ function callExpandOntEntity(id, uri, type) {
     node.expand();
     node.populated = true;
 
-    PowerMagpie.expandOntEntity(uri, {
+    sweet.expandOntEntity(uri, {
         callback:   function(data){
                         expandOntEntity(node, data);
                     }
@@ -636,7 +638,7 @@ function switch2term(t) {
 function message(to, msg) {
     //TODO use "to"
     if (msg.indexOf("term:", 0) != -1) {
-        PowerMagpie.getEntities({
+        sweet.getEntities({
         callback:   function(data){
                         populateEntities(data);
                     }
@@ -665,7 +667,7 @@ function _match(to, searchTerm, match, count) {
 }
 
 function callShowMatch(nid) {
-    PowerMagpie.send('host', nid);
+    sweet.send('host', nid);
 }
 
 function _select(to, searchTerm) {
@@ -684,14 +686,14 @@ function _selectNode(to, id) {
 }
 
 function tag(uri) {
-    PowerMagpie.send("host", "tag:" + uri);
+    sweet.send("host", "tag:" + uri);
 }
 
 // INFO
 
 function callInfoEntity(uri) {
     //alert(parent.location.href);
-    //PowerMagpie.infoEntity(uri, {callback: function(data){infoEntity(data)}});
+    //sweet.infoEntity(uri, {callback: function(data){infoEntity(data)}});
 }
 
 function infoEntity(data) {
@@ -707,7 +709,7 @@ function infoEntity(data) {
 }
 
 function callInfoOntology(uri) {
-    //PowerMagpie.infoOntology(uri, {callback: function(data){infoOntology(data)}});
+    //sweet.infoOntology(uri, {callback: function(data){infoOntology(data)}});
 }
 
 function infoOntology(data) {
@@ -743,13 +745,13 @@ function _log(line) {
 }
 
 function stag() {
-    PowerMagpie.send('host', 'stag:');
+    sweet.send('host', 'stag:');
 }
 function ptag() {
-    PowerMagpie.send('host', 'ptag:');
+    sweet.send('host', 'ptag:');
 }
 function otag() {
-    PowerMagpie.send('host', 'otag:');
+    sweet.send('host', 'otag:');
 }
     //--><!]]></script>
   </head>

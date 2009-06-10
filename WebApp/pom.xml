@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <parent>
-        <artifactId>PowerMagpie</artifactId>
-        <groupId>uk.ac.open.powermagpie</groupId>
+        <artifactId>sweet</artifactId>
+        <groupId>uk.ac.open.sweet</groupId>
         <version>2.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>uk.ac.open.powermagpie</groupId>
+    <groupId>uk.ac.open.sweet</groupId>
     <artifactId>WebApp</artifactId>
     <packaging>war</packaging>
-    <name>PowerMagpie WebApp</name>
+    <name>sweet WebApp</name>
     <version>2.0</version>
-    <url>http://purl.org/net/powermagpie</url>
+    <url>http://purl.oclc.org/NET/sweetdemo</url>
     <build>
         <finalName>WebApp</finalName>
         <plugins>
@@ -42,7 +42,7 @@
     <dependencies>
         <!-- TODO
         <dependency>
-            <groupId>uk.ac.open.powermagpie</groupId>
+            <groupId>uk.ac.open.sweet</groupId>
             <artifactId>FrontEnd</artifactId>
             <version>2.0</version>
         </dependency>

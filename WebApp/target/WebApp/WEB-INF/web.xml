@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-    <display-name>PowerMagpie Web Application</display-name>
+    <display-name>sweet Web Application</display-name>
     <listener>
-        <listener-class>uk.ac.open.powermagpie.AppListener</listener-class>
+        <listener-class>uk.ac.open.sweet.AppListener</listener-class>
     </listener>
     <listener>
         <listener-class>org.directwebremoting.servlet.EfficientShutdownServletContextAttributeListener</listener-class>
@@ -56,7 +56,7 @@
 
     <servlet>
         <servlet-name>Mount</servlet-name>
-        <servlet-class>uk.ac.open.powermagpie.servlet.Mount</servlet-class>
+        <servlet-class>uk.ac.open.sweet.servlet.Mount</servlet-class>
         <init-param>
             <param-name>default.resource</param-name>
             <param-value>index.html</param-value>
@@ -64,11 +64,11 @@
     </servlet>
     <servlet>
         <servlet-name>HtmlAnnotation</servlet-name>
-        <servlet-class>uk.ac.open.powermagpie.servlet.HtmlAnnotation</servlet-class>
+        <servlet-class>uk.ac.open.sweet.servlet.HtmlAnnotation</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RDFAnnotation</servlet-name>
-        <servlet-class>uk.ac.open.powermagpie.servlet.RDFAnnotation</servlet-class>
+        <servlet-class>uk.ac.open.sweet.servlet.RDFAnnotation</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HtmlAnnotation</servlet-name>

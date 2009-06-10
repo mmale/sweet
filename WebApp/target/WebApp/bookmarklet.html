@@ -12,14 +12,15 @@
 	<script type="text/javascript" src="Frameworks/jQuery/jquery-color-1.0/jquery-color-1.0.js"></script>
 	<script type="text/javascript">
 		
-		var namespace 	  = 'http://purl.org/net/powermagpie';
+		var namespace 	  = 'http://purl.oclc.org/NET/sweetdemo';
+		//http://purl.oclc.org/NET/sweetdemo
 		
 		window[namespace] = {
 		
 			$:  		jQuery,
 		
 			toggle:		function() {
-							$('#bookmarklet').html('PowerMagpie');
+							$('#bookmarklet').html('sweetdemo');
 							apply();
 						}
 		};
@@ -27,7 +28,7 @@
 		function apply() {
 			
 			if ($('#purl')[0].checked) {
-				window[namespace].base = 'http://purl.org/net/powermagpie';
+				window[namespace].base = 'http://purl.oclc.org/NET/sweetdemo';
 			} else {
 				window[namespace].base = $('#base')[0].value;
 			}
@@ -47,17 +48,17 @@
 
 <div class="container">
 	
-<h1 style="line-height: 1.3em;">To install the PowerMagpie bookmarklet, drag the following link: <a id="bookmarklet" href="#" onclick="return false;" style="background-color: white">loading …</a> to the bookmarks bar</h1>
+<h1 style="line-height: 1.3em;">To install the <b>sweet</b> bookmarklet, drag the following link: <a id="bookmarklet" href="#" onclick="return false;" style="background-color: white">loading …</a> to the bookmarks bar</h1>
 <form>
 	<fieldset>
 	<legend>Use base URI</legend>
 		<label>
-			<input type="radio" name="rbase" id="purl" checked="checked" onchange="apply()" /> http://purl.org/net/powermagpie
+			<input type="radio" name="rbase" id="purl" checked="checked" onchange="apply()" /> http://sweetdemo.kmi.open.ac.uk:8080/
 		</label>
 		<br />
 		<label>
 			<input type="radio" name="rbase" id="user" onchange="apply(); $('#base').focus()" />
-			<input type="text" size="30" id="base" value="" onchange="apply()" />
+			<input type="text" size="30" id="base" value="http://sweetdemo.kmi.open.ac.uk:8080/" onchange="apply()" />
 		</label>
 	</fieldset>
 </form>

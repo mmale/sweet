@@ -1,6 +1,6 @@
 (function(){
 	
-	var namespace 	  = 'http://purl.org/net/powermagpie';
+	var namespace 	  = 'http://purl.org/net/sweet';
 
 	window[namespace].$.extend(
 		window[namespace],
@@ -32,7 +32,7 @@ $("*").hover(
 			if (this.id == "") id = ("xpointer("+ getXPath(this).toLowerCase() +")").replace(/\[/g, '%5B').replace(/\]/g, '%5D');
 			var uri = base + "#" + id;
 
-			var seeAlso = 'http://purl.org/net/powermagpie/store/' + (new UUID() + '').toLowerCase();
+			var seeAlso = 'http://purl.org/net/sweet/store/' + (new UUID() + '').toLowerCase();
 			
 			$(this).attr({
 				'id':		id,
@@ -57,9 +57,9 @@ $("*").hover(
 				nt += '<'+seeAlso+'> <http://www.w3.org/2000/10/annotation-ns#context> <'+uri+'> .' + '\n';
 				nt += '<'+seeAlso+'> <http://www.w3.org/2000/10/annotation-ns#annotates> <'+base+'> .' + '\n';
 				if (console) console.log(nt);
-				// ajax post to http://localhost:8080/PowerMagpieLight/store
-				//$.post('http://localhost:8080/PowerMagpieLight/store', {'nt': nt});
-				$('body').append('<div id="temp" style="xdisplay: none"><form id="fnt" method="POST" action="http://localhost:8080/PowerMagpie/store" target="iii"><textarea id="nt" name="nt" cols="100" rows="10"></textarea><input type="submit"></form><iframe src="about:blank" name="iii" id="iii"></iframe></div>');
+				// ajax post to http://localhost:8080/sweetLight/store
+				//$.post('http://localhost:8080/sweetLight/store', {'nt': nt});
+				$('body').append('<div id="temp" style="xdisplay: none"><form id="fnt" method="POST" action="http://localhost:8080/sweet/store" target="iii"><textarea id="nt" name="nt" cols="100" rows="10"></textarea><input type="submit"></form><iframe src="about:blank" name="iii" id="iii"></iframe></div>');
 				$('#nt').text(nt);
 				//$('#fnt').submit();
 				//$('#temp').remove();
@@ -84,8 +84,8 @@ $("*").hover(
   	}
 ); // hover
 
-//humanMsg.setup('body', 'PowerMagpie');
-//humanMsg.displayMsg('PowerMagpie magick loaded! v' + version, false);
+//humanMsg.setup('body', 'sweet');
+//humanMsg.displayMsg('sweet magick loaded! v' + version, false);
 
 /////////							
 						}
@@ -118,7 +118,7 @@ $("*").hover(
 							document.getElementsByTagName("head")[0].appendChild(node);
 						},
 					
-			session: 	'http://purl.org/net/powermagpie/store/' 
+			session: 	'http://purl.org/net/sweet/store/' 
 						+ (new UUID() 
 						+ '').toLowerCase()  
 		});

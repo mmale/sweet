@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module>
     <identity>
-        <uri>urn:uk:ac:open:powermagpie2</uri>
+        <uri>urn:uk:ac:open:sweet2</uri>
         <version>1.0.0</version>
     </identity>
     <info>
-        <name>PowerMagpie</name>
-        <description>PowerMagpie backend</description>
+        <name>sweet</name>
+        <description>sweet backend</description>
         <type>application</type>
     </info>
     <publisher>
@@ -19,8 +19,8 @@
     </licence>
     <export>
         <uri>
-            <match>powermagpie:.*</match>
-            <match>ffcpl:/powermagpie/.*</match>
+            <match>sweet:.*</match>
+            <match>ffcpl:/sweet/.*</match>
             <match>ffcpl:/entrypoints.xml</match>
             <match>ffcpl:/etc/HTTPBridgeConfig.xml</match>
         </uri>
@@ -28,7 +28,7 @@
     </export>
     <rewrite>
         <rule>
-            <match>ffcpl:/powermagpie/(.*)</match>
+            <match>ffcpl:/sweet/(.*)</match>
             <to>ffcpl:/$1</to>
         </rule>
         <rule>
@@ -47,8 +47,8 @@
     </rewrite>
     <mapping>
         <ura>
-            <match>powermagpie:.*</match>
-            <class>uk.ac.open.powermagpie.context.accessor.ContextAccessor</class>
+            <match>sweet:.*</match>
+            <class>uk.ac.open.sweet.context.accessor.ContextAccessor</class>
         </ura>
         <this>
             <match>ffcpl:/.*</match>
@@ -76,6 +76,6 @@
         <super />
     </mapping>
     <transreptors>
-        <transreptor>uk.ac.open.powermagpie.context.transreptor.ContextFactory</transreptor>
+        <transreptor>uk.ac.open.sweet.context.transreptor.ContextFactory</transreptor>
     </transreptors>
 </module>

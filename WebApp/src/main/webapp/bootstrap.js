@@ -1,7 +1,7 @@
 /**
 @prefix : <http://purl.org/net/ns/doas#> .
 <>	a	:JavaScript;
-	:shortdesc "PowerMagpie loader";
+	:shortdesc "sweet loader";
  	:created "2008-06-12";
  	:release [
 		:revision "0.3";
@@ -16,7 +16,7 @@
 
 (function() {
 	
-	var namespace 	= 'http://purl.org/net/powermagpie';
+	var namespace 	= 'http://purl.oclc.org/NET/sweetdemo';
 	
 	var object		= {
 		

@@ -7,12 +7,12 @@
  		<instr>
 			<type>copy</type>
 			<operand><foo /></operand>
-			<target>powermagpie:/+term@soup</target>
+			<target>sweet:/+term@soup</target>
 		</instr>
  		<instr>
 			<type>copy</type>
 			<operand><foo /></operand>
-			<target>powermagpie:/+term@rabbit</target>
+			<target>sweet:/+term@rabbit</target>
 		</instr>
 
 
@@ -21,7 +21,7 @@
  		<!-- instr>
 			<type>copy</type>
 			<operand>http://localhost:8080/OK/watson?keywords=soup</operand>
-			<target>powermagpie:/terms[@lexical='soup']/sc</target>
+			<target>sweet:/terms[@lexical='soup']/sc</target>
 		</instr -->
 
         <instr>
@@ -47,12 +47,12 @@
         <instr>
 			<type>copy</type>
 			<operand>var:watson3</operand>
-			<target>powermagpie:/+path@/terms[%40name='rabbit']</target>
+			<target>sweet:/+path@/terms[%40name='rabbit']</target>
 		</instr>
 
 		<instr>
 			<type>copy</type>
-			<operand>powermagpie:/terms</operand>
+			<operand>sweet:/terms</operand>
 			<target>this:response</target>
 		</instr>
 		<instr>

@@ -2602,23 +2602,23 @@
           <string>WEB-INF/dwr.xml</string>
           <string>WEB-INF/web.xml</string>
           <string>WEB-INF/classes/ehcache.xml</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/AppListener.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/cache/CacheFactory.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/cache/EhcacheAdapter.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/cache/Entry.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/Connector.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/context/Context.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/context/Match.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/context/Term.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/search/Factory.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/search/Watson.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/search/Yahoo.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/servlet/HtmlAnnotation.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/servlet/Mount.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/servlet/RDFAnnotation.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/util/LabelSplitter.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/util/NameSpace.class</string>
-          <string>WEB-INF/classes/uk/ac/open/powermagpie/util/Stemmer.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/AppListener.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/cache/CacheFactory.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/cache/EhcacheAdapter.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/cache/Entry.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/Connector.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/context/Context.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/context/Match.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/context/Term.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/search/Factory.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/search/Watson.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/search/Yahoo.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/servlet/HtmlAnnotation.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/servlet/Mount.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/servlet/RDFAnnotation.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/util/LabelSplitter.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/util/NameSpace.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/util/Stemmer.class</string>
           <string>WEB-INF/lib/memoize-1.01.jar</string>
           <string>WEB-INF/lib/cglib-nodep-2.2_beta1.jar</string>
           <string>WEB-INF/lib/ehcache-1.3.0.jar</string>
