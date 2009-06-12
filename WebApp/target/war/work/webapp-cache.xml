@@ -5,6 +5,7 @@
       <path-set>
         <pathsSet class="linked-hash-set">
           <string>bookmarklet.html</string>
+          <string>bookmarkletOld.html</string>
           <string>boot/core.js</string>
           <string>boot/MyStyle.css</string>
           <string>boot/style.css</string>
@@ -2586,9 +2587,11 @@
           <string>Icons/R.png</string>
           <string>Icons/T.png</string>
           <string>Icons/Thumbs.db</string>
-          <string>index.xml</string>
+          <string>index.html</string>
           <string>Library/rdfa/rdfa.js</string>
           <string>Library/uuid-0.2/uuid-0.2.js</string>
+          <string>logo.jpg</string>
+          <string>logoMini.jpg</string>
           <string>m.png</string>
           <string>META-INF/context.xml</string>
           <string>Profiles/Classic.js</string>
@@ -2616,6 +2619,7 @@
           <string>WEB-INF/classes/uk/ac/open/sweet/servlet/HtmlAnnotation.class</string>
           <string>WEB-INF/classes/uk/ac/open/sweet/servlet/Mount.class</string>
           <string>WEB-INF/classes/uk/ac/open/sweet/servlet/RDFAnnotation.class</string>
+          <string>WEB-INF/classes/uk/ac/open/sweet/SSOntology.class</string>
           <string>WEB-INF/classes/uk/ac/open/sweet/util/LabelSplitter.class</string>
           <string>WEB-INF/classes/uk/ac/open/sweet/util/NameSpace.class</string>
           <string>WEB-INF/classes/uk/ac/open/sweet/util/Stemmer.class</string>

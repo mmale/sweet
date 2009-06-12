@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>SWEET</title>	
+	<link rel="stylesheet" href="Frameworks/Blueprint/blueprint/screen.css" type="text/css" media="screen, projection" />
+  	<link rel="stylesheet" href="Frameworks/Blueprint/blueprint/print.css" type="text/css" media="print" />
+  	<!--[if IE]><link rel="stylesheet" href="Frameworks/Blueprint/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+	<script type="text/javascript" src="Frameworks/jQuery/jquery-1.2.6/jquery-1.2.6.js"></script>
+	<script type="text/javascript" src="Frameworks/jQuery/jquery-easing-1.3/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="Frameworks/jQuery/jquery-color-1.0/jquery-color-1.0.js"></script>
+	<script type="text/javascript">
+		
+		var namespace 	  = 'http://purl.oclc.org/NET/sweetdemo';
+		//http://purl.oclc.org/NET/sweetdemo
+		
+		window[namespace] = {
+		
+			$:  		jQuery,
+		
+			toggle:		function() {
+							$('#bookmarklet').html('<img alt="Logo" src="logo.jpg"/>');
+							apply();
+						}
+		};
+		
+		function apply() {
+			
+			window[namespace].base = 'http://sweetdemo.kmi.open.ac.uk:8080';
+			
+			$('#bookmarklet')[0].href = 'javascript:' + window[namespace].bookmarklet();
+			
+			$("#bookmarklet")
+				.animate({ backgroundColor: "yellow" },  250)
+				.animate({ backgroundColor: "white"  }, 1000);
+			
+		}
+		
+	</script>	
+</head>
+
+<body>
+
+<div class="container">											
+	
+<h1 style="line-height: 1.3em;">To install the <b>sweet</b> bookmarklet, drag the following link: <a id="bookmarklet" href="#" onclick="return false;" style="background-color: white"> <img alt="Logo" src="logo.jpg" />loading …</a> to the bookmarks bar</h1>
+
+</div>
+
+<script type="text/javascript" src="bootstrap.js"></script>
+</body>
+</html>
