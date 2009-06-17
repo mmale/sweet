@@ -17,18 +17,12 @@ import uk.ac.open.sweet.search.Factory;
 import uk.ac.open.sweet.util.NameSpace;
 import uk.ac.open.sweet.*;
 
-/**
- *
- * @author Laurian Gridinoc
- */
 public class Connector {
 
     Context context;
-    SSOntology ssontology = new SSOntology();
-    boolean ssontologyIncluded = false;
 
     public Connector() {
-        context = new Context("tag:sweet.open.ac.uk,2009:test");
+        context = new Context("tag:sweetdemo.open.ac.uk,2009:test");
     }
 
     public boolean ping(String session) {
@@ -44,6 +38,17 @@ public class Connector {
 
     public int add(String term) {
         int i = context.add(term).matches().size();
+        
+        SSOntology ssontology = new SSOntology();   
+        Match m = ssontology.containsTerm(term, "foo");
+        if(m != null)
+    	{
+        	//Ad ontology in match
+        	context.terms().get(term).matches().add(m);
+        	
+        	i++;
+    	}
+        
         if (i > 0) send("*", "term:" + term.trim());
         return i;
     }
@@ -58,13 +63,6 @@ public class Connector {
         Vector<String> v = new Vector<String>();
 
         Iterator<Match> i = context.terms().get(term).matches().iterator();
-       
-        if (ssontology.containsTerm(term))
-        {
-        	this.ssontologyIncluded = true;
-        	v.add(ssontology.getURI());
-        }
-        
         while(i.hasNext()) {
             Match m = i.next();
             v.add(m.getEntityResult().getURI());
@@ -94,17 +92,6 @@ public class Connector {
         HashMap<String, HashMap<String, String>> h = new HashMap<String, HashMap<String, String>>(v.size());
 
         //Collections.sort(v);
-        if (ssontology.containsTerm(name))
-        {
-        	this.ssontologyIncluded = true;
-        	
-        	Match e = ssontology.getMatch(name);
-            HashMap<String, String> attr = new HashMap<String, String>();
-            attr.put("type", e.getEntityResult().getType());
-            attr.put("localName", e.getEntityResult().getURI() + "#" + ssontology.getLabel());
-            attr.put("URI", e.getEntityResult().getURI());
-            h.put(e.getEntityResult().getURI(), attr);
-        }
 
         Iterator<Match> it = v.iterator();
         while (it.hasNext()) {
@@ -123,11 +110,6 @@ public class Connector {
         Vector<SemanticContentResult> v = new Vector<SemanticContentResult>();
         Iterator<Entry<String, Term>> it  = context.terms().entrySet().iterator();
 
-        if (ssontology.getURI().equals(uri))
-        {
-        	v.add(ssontology.getSemanticContentResult());
-        }
-        
         while(it.hasNext()) {
             Term t = it.next().getValue();
             Iterator<Match> mi = t.matches().iterator();
@@ -205,11 +187,6 @@ public class Connector {
 
         while(it.hasNext()) {
             Term t = it.next().getValue();
-            if (ssontology.containsTerm(t.lexical()))
-            {
-            	v.add(ssontology.getEntityResult(t.lexical()));
-            }
-           
             Iterator<Match> mi = t.matches().iterator();
             while(mi.hasNext()) {
                 Match m = mi.next();
@@ -249,14 +226,6 @@ public class Connector {
         Iterator<Entry<String, Term>> it  = context.terms().entrySet().iterator();
         while(it.hasNext()) {
             Term t = it.next().getValue();
-            
-            if (ssontology.containsTerm(t.lexical()))
-            {
-            	if (ssontology.getURI().equals(uri)) {
-                    v.add(t.lexical());
-                }
-            }
-            
             Iterator<Match> mi = t.matches().iterator();
             while(mi.hasNext()) {
                 Match m = mi.next();
@@ -269,6 +238,18 @@ public class Connector {
         return v.toArray(new String[]{});
     }
 
+    private String[] getClasses(String uri)
+    {
+    	SSOntology ssontology = new SSOntology();   
+        if(uri.startsWith("http://sweet.kmi.open.ac.uk/ssontology")) 
+    	{
+        	return ssontology.getOntologyConcepts();
+        }
+    	
+        return Factory.instance().getWatson().getClasses(uri);
+    	
+    }
+    
 
     /// ontology tree, TODO move to its own class, etc.
     /// get all concepts, keep only top ones.
@@ -291,20 +272,9 @@ public class Connector {
         return h;
     }
 
-    private String[] getClasses(String uri)
-    {
-    	if (ssontology.getURI().equals(uri))
-        {
-        	return ssontology.getOntologyConcepts();
-        }
-    	else{
-    		return Factory.instance().getWatson().getClasses(uri);
-    	}
-    }
-    
     public HashMap expandOntTop(String uri) {
         HashMap<String, HashMap<String, String>> h = new HashMap<String, HashMap<String, String>>();
-        
+
         String[] classes = this.getClasses(uri);
         Vector<String> c = new Vector<String>(classes.length);
         for(int i = 0; i < classes.length; i++) {
@@ -335,18 +305,16 @@ public class Connector {
         System.out.println("Expand " + ont + " >>> " + uri);
         HashMap<String, HashMap<String, String>> h = new HashMap<String, HashMap<String, String>>();
 
-        
-        String[] classes = this.getClasses(uri);
-        
-        for (int i = 0; i < classes.length; i++) {
-            HashMap<String, String> attr = new HashMap<String, String>();
-            attr.put("type", "Class");
-            attr.put("localName", NameSpace.splitNamespace(classes[i])[1]);
-            attr.put("URI", classes[i]);
-            attr.put("ont", ont);
-            h.put(classes[i], attr);
-        }
-        
+            String[] classes = Factory.instance().getWatson().getSubClasses(ont, uri);
+            for (int i = 0; i < classes.length; i++) {
+                HashMap<String, String> attr = new HashMap<String, String>();
+                attr.put("type", "Class");
+                attr.put("localName", NameSpace.splitNamespace(classes[i])[1]);
+                attr.put("URI", classes[i]);
+                attr.put("ont", ont);
+                h.put(classes[i], attr);
+            }
+
         return h;
     }
 

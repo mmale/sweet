@@ -13,8 +13,8 @@
         <url>http://kmi.open.ac.uk/</url>
     </organization>
     <scm>
-        <connection>scm:git:git://github.com/Laurian/sweet.git</connection>
-        <url>http://github.com/Laurian/sweet</url>
+        <connection>scm:git:git://github.com/mmale/sweet.git</connection>
+        <url>http://github.com/mmale/sweet</url>
     </scm>
     <issueManagement>
         <system>Lighthouse</system>

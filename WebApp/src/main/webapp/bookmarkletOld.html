@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="Frameworks/jQuery/jquery-color-1.0/jquery-color-1.0.js"></script>
 	<script type="text/javascript">
 		
-		var namespace 	  = 'http://purl.oclc.org/NET/sweetdemo';
+		var namespace 	  = 'http://sweetdemo.kmi.open.ac.uk:8080';
 		//http://purl.oclc.org/NET/sweetdemo
 		
 		window[namespace] = {
@@ -28,7 +28,7 @@
 		function apply() {
 			
 			if ($('#purl')[0].checked) {
-				window[namespace].base = 'http://purl.oclc.org/NET/sweetdemo';
+				window[namespace].base = 'http://sweetdemo.kmi.open.ac.uk:8080';
 			} else {
 				window[namespace].base = $('#base')[0].value;
 			}

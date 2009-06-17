@@ -10,7 +10,7 @@
                 </property>
             </activation>
             <properties>
-                <netbeans.deployment.server.id>tomcat60:home=/Users/lg3388/Applications/apache-tomcat-6.0.16</netbeans.deployment.server.id>
+                <netbeans.deployment.server.id>tomcat60:home=/Users/msm324/Applications/apache-tomcat-6.0.16</netbeans.deployment.server.id>
             </properties>
         </profile>
     </profiles>

@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="Frameworks/jQuery/jquery-color-1.0/jquery-color-1.0.js"></script>
 	<script type="text/javascript">
 		
-		var namespace 	  = 'http://purl.oclc.org/NET/sweetdemo';
+		var namespace 	  = 'http://sweetdemo.kmi.open.ac.uk:8080';
 		
 		window[namespace] = {
 		
@@ -27,7 +27,7 @@
 		function apply() {
 			
 			if ($('#purl')[0].checked) {
-				window[namespace].base = 'http://purl.oclc.org/NET/sweetdemo';
+				window[namespace].base = 'http://sweetdemo.kmi.open.ac.uk:8080';
 			} else {
 				window[namespace].base = $('#base')[0].value;
 			}
@@ -52,7 +52,7 @@
 	<fieldset>
 	<legend>Use base URI</legend>
 		<label>
-			<input type="radio" name="rbase" id="purl" checked="checked" onchange="apply()" /> http://purl.oclc.org/NET/sweetdemo
+			<input type="radio" name="rbase" id="purl" checked="checked" onchange="apply()" /> http://sweetdemo.kmi.open.ac.uk:8080
 		</label>
 		<br />
 		<label>

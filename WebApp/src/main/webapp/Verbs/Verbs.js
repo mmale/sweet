@@ -27,7 +27,7 @@ CmdUtils.CreateCommand({
     name: "pica",
     takes: {"a term": noun_arb_text},
     homepage: "http://purl.oclc.org/NET/sweetdemo",
-    author: { name: "Laurian Gridinoc", email: "laurian@gridinoc.name"},
+    //author: { name: "Laurian Gridinoc", email: "laurian@gridinoc.name"},
     license: "Apache? TBD", //TODO
     description: "Displays sweet results for a term or a set of discovered terms in the input",
     help: "see http://purl.oclc.org/NET/sweetdemo",
@@ -35,7 +35,7 @@ CmdUtils.CreateCommand({
   preview: function(previewBlock, term) {
     previewBlock.innerHTML = "looking up " + term.text + " with sweet \u2026 ";
     displayMessage(term.text);
-        previewBlock.innerHTML = "<iframe src='http://sweetdemo.kmi.open.ac.uk:8080/UI/index.html' border='0' width='100%' height='100%' scrolling='yes' style='border: 0; margin: 0;' ></iframe>";
+        previewBlock.innerHTML = "<iframe src='http://sweetdemo.kmi.open.ac.uk:8080/sweet/UI/index.html' border='0' width='100%' height='100%' scrolling='yes' style='border: 0; margin: 0;' ></iframe>";
 
   },
 

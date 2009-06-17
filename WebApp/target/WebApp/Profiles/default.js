@@ -59,7 +59,7 @@ $("*").hover(
 				if (console) console.log(nt);
 				// ajax post to http://localhost:8080/sweetLight/store
 				//$.post('http://localhost:8080/sweetLight/store', {'nt': nt});
-				$('body').append('<div id="temp" style="xdisplay: none"><form id="fnt" method="POST" action="http://localhost:8080/sweet/store" target="iii"><textarea id="nt" name="nt" cols="100" rows="10"></textarea><input type="submit"></form><iframe src="about:blank" name="iii" id="iii"></iframe></div>');
+				$('body').append('<div id="temp" style="xdisplay: none"><form id="fnt" method="POST" action="http://sweetdemo.kmi.open.ac.uk:8080/store" target="iii"><textarea id="nt" name="nt" cols="100" rows="10"></textarea><input type="submit"></form><iframe src="about:blank" name="iii" id="iii"></iframe></div>');
 				$('#nt').text(nt);
 				//$('#fnt').submit();
 				//$('#temp').remove();

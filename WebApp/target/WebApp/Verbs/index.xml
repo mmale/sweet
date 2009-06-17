@@ -11,7 +11,7 @@
 	xml:lang="en-GB">
   <head	version="XHTML+RDFa 1.0"
         profile="http://www.w3.org/1999/xhtml/vocab">
-    <!-- base href="http://purl.org/net/sweet" / -->
+    <!-- base href="http://purl.oclc.org/NET/sweetdemo" / -->
     <title>sweet</title>
     <meta property="dc:creator" content="Laurian Gridinoc" />
     <link rel="transformation" href="http://www.w3.org/2003/g/glean-profile" />

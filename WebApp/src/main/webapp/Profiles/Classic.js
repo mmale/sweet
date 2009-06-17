@@ -388,7 +388,7 @@ function tag(node) {
     //#xpointer(string-range(//P,&quot;FOO&quot;))
     //
 	var about = base + '#xpointer(string-range('
-        + window['http://purl.oclc.org/NET/sweetdemo'].getXPath($("#" + lastNid).parent()[0]).toLowerCase()
+        + window['http://sweetdemo.kmi.open.ac.uk:8080/sweet'].getXPath($("#" + lastNid).parent()[0]).toLowerCase()
         + ',&quot;' + $("#" + lastNid).text() + '&quot;))' ;
 	//var seeAlso = 'http://purl.org/net/sweet/store/' + (new UUID() + '').toLowerCase();
     console.log(lastNid);

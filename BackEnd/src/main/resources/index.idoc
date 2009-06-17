@@ -20,13 +20,13 @@
 
  		<!-- instr>
 			<type>copy</type>
-			<operand>http://localhost:8080/OK/watson?keywords=soup</operand>
+			<operand>http://sweetdemo.kmi.open.ac.uk:8080/OK/watson?keywords=soup</operand>
 			<target>sweet:/terms[@lexical='soup']/sc</target>
 		</instr -->
 
         <instr>
 			<type>copy</type>
-			<operand>http://localhost:8080/OK/watson?keywords=soup</operand>
+			<operand>http://sweetdemo.kmi.open.ac.uk:8080/OK/watson?keywords=soup</operand>
 			<target>var:watson</target>
 		</instr>
 
