@@ -1,0 +1,5 @@
+WebApp/target/**/*
+FrontEnd/target/**/*
+BackEnd/target/**/*
+target/**/*
+.DS_Store
